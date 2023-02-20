@@ -1,0 +1,98 @@
+# coding: utf-8
+import os, sys
+import cv2
+import time
+import win32api
+import win32con
+import aircv as ac
+from PIL import ImageGrab
+from log_module import LogClass
+ 
+import numpy as np
+ 
+parent_path = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(parent_path)
+ 
+ 
+class CheckHDMirror(LogClass):
+    """CheckHDMirror"""
+ 
+    def __init__(self):
+        """__init__"""
+        LogClass.__init__(self, logName='CheckHDMirror')
+        self.setTimedRotatingFileHandler(fileName='CheckHDMirror')
+        self.img_path = parent_path + "\\img\\"  # 截图路径
+        self.scale = 1
+        self.result = False  # 结果
+ 
+    def search_point(self, img, template, template_size):
+        img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        template_ = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
+        result = cv2.matchTemplate(img_gray, template_, cv2.TM_CCOEFF_NORMED)
+        threshold = 0.9
+        loc = np.where(result >= threshold)  # 相似度大于90%
+        point = ()
+        for pt in zip(*loc[::-1]):
+            cv2.rectangle(img, pt, (pt[0] + template_size[1], pt[1] + + template_size[0]), (7, 249, 151), 2)
+            point = pt
+        if point == ():
+            return None, None, None
+        return img, point[0] + template_size[1] / 2, point[1]
+ 
+    def get_position(self):
+        try:
+            # im = ImageGrab.grab()
+            # if os.path.exists(self.img_path) is False:
+            #     os.makedirs(self.img_path)
+            # im.save(self.img_path + "screenshot.png")  # 全屏截图保存
+ 
+            mirrir_img = self.img_path + "mirrir.png"
+            hd_img = self.img_path + "hd.png"
+            max_img = self.img_path + "screenshot.png"
+ 
+            # 方法一：
+            # max_img = cv2.imread(max_img)  # 要找的大图
+            # max_img = cv2.resize(max_img, (0, 0), fx=self.scale, fy=self.scale)
+            #
+            # hd_img = cv2.imread(hd_img)  # 图中的小图
+            # hd_img = cv2.resize(hd_img, (0, 0), fx=self.scale, fy=self.scale)
+            # hd_img_size = hd_img.shape[:2]
+            #
+            # mirrir_img = cv2.imread(mirrir_img)  # 图中的小图
+            # mirrir_img = cv2.resize(mirrir_img, (0, 0), fx=self.scale, fy=self.scale)
+            # mirrir_img_size = mirrir_img.shape[:2]
+            #
+            # hd, x_, y_ = self.search_point(max_img, hd_img, hd_img_size)
+            # mirrir, x_, y_ = self.search_point(max_img, mirrir_img, mirrir_img_size)
+ 
+            # 方法二：
+            max_img_pos = ac.imread(max_img)
+            hd_img_pos = ac.imread(hd_img)
+            m_img_pos = ac.imread(mirrir_img)
+ 
+            hd = ac.find_template(max_img_pos, hd_img_pos)  # 在大图中找小图
+            mirrir = ac.find_template(max_img_pos, m_img_pos)
+ 
+            if hd and mirrir:
+                if float(hd["confidence"]) > 0.9 and float(mirrir["confidence"]) > 0.9:  # 相似度大于90%
+                    position = hd["result"]  # 坐标
+                    print(position)
+                    self.result = True
+                else:
+                    self.result = False
+            else:
+                self.result = False
+            self.logger.info("Is it the same?: %s" % self.result)
+            return self.result
+        except Exception as e:
+            self.logger.error(e)
+ 
+    def run(self):
+        self.logger.info("begin")
+        self.get_position()
+        self.logger.info("end")
+ 
+ 
+if __name__ == '__main__':
+    z = CheckHDMirror()
+    z.run()
