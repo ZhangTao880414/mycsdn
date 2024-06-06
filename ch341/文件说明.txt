@@ -1,0 +1,44 @@
+CH341PAR.ZIP
+适用范围	版本	上传时间	资料大小
+CH341，CH347	2.4	2023-10-19	532KB
+USB转JTAG/SPI/I2C/并口/GPIO等接口的Windows驱动和DLL库，支持CH341的USB转SPI/I2C/EPP并口/MEM并口等，支持CH347的480Mbps高速USB转JTAG/SPI/I2C/GPIO等，支持32/64位 Windows 11/10/8.1/8/7/VISTA/XP/2000，SERVER 2019/2016/2012/2008/2003，通过微软数字签名认证，方便产品应用软件打包集成。
+
+
+CH341PAR.EXE
+适用范围	版本	上传时间	资料大小
+CH341,CH347	2.4	2023-10-18	566KB
+USB转JTAG/SPI/I2C/并口/GPIO等接口的Windows一键式安装驱动程序，支持CH341的USB转SPI/I2C/EPP并口/MEM并口等，支持CH347的480Mbps高速USB转JTAG/SPI/I2C/GPIO等，支持32/64位 Windows 11/10/8.1/8/7/VISTA/XP/2000，SERVER 2019/2016/2012/2008/2003，通过微软数字签名认证，用于随产品发行到最终用户。
+
+
+CH341DS2.PDF
+适用范围	版本	上传时间	资料大小
+CH341	3.2	2018-05-03	182KB
+CH341技术手册2，USB总线转接芯片，接口丰富，平台驱动齐全，用于USB转串口/USB转并口/USB转打印口/USB转I2C两线串口。该手册为USB转并口及USB转同步串口的说明。
+
+
+CH341EVT.ZIP
+适用范围	版本	上传时间	资料大小
+CH341	1.1	2014-06-20	686KB
+CH341评估板的说明及参考应用例程，用于USB转异步串口、转打印口或EPP并口、转2线和4线串口，演示数字I/O控制、读写兼容I2C的EEPROM，含识别CH341串口的源程序、外部EEPROM配置工具、演示和速度测试源程序等。
+
+CH341SER.EXE
+适用范围	版本	上传时间	资料大小
+CH340G，CH340T，CH340C，CH340N, CH340K, CH340E，CH340B，CH341A，CH341F, CH341T，CH341B，CH341C，CH341U	3.8	2023-03-16	642KB
+USB转串口Windows一键式安装驱动程序，支持CH340和CH341，支持32/64位Windows 11/10/8.1/8/7/VISTA/XP，SERVER 2022/2019/2016/2012/2008/2003，2000/ME/98，通过微软数字签名认证，支持USB转UART的3线和9线SERIAL串口等，用于随产品发行到最终用户。
+
+CH341PRT.ZIP
+适用范围	版本	上传时间	资料大小
+CH340H，CH340S，CH341A，CH341B，CH341U	1.2	2007-09-17	110KB
+USB转打印口Windows驱动程序和DLL库，支持CH340和CH341，将普通并口打印机转换为USB打印机，支持WINDOWS 98/ME（WINDOWS 2000/XP不需要安装驱动程序）。
+
+
+
+https://www.cnblogs.com/lyuyangly/p/9025122.html
+
+https://www.zhihu.com/question/598249040
+
+https://www.wch.cn/bbs/thread-73646-1.html
+
+https://blog.csdn.net/zoran_wu/article/details/110878490
+
+spi调试软件 sscom3.2
