@@ -1,0 +1,64 @@
+注意：不能跨版本升级！！！！！！
+
+升级路线：https://blog.csdn.net/weixin_45272815/article/details/136120325
+
+官方升级路线检查：https://gitlab-com.gitlab.io/support/toolbox/upgrade-path/
+
+
+3. 运行gitlab-ce镜像
+docker run -d  -p 443:443 -p 80:80 -p 222:22 --name gitlab --restart always -v /home/gitlab/config:/etc/gitlab -v /home/gitlab/logs:/var/log/gitlab -v /home/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:14.9.5-ce.0
+
+docker run -d  -p 443:443 -p 80:80 -p 222:22 --name gitlab --restart always -v /home/gitlab/config:/etc/gitlab -v /home/gitlab/logs:/var/log/gitlab -v /home/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:14.10.5-ce.0
+
+docker run -d  -p 443:443 -p 80:80 -p 222:22 --name gitlab --restart always -v /home/gitlab/config:/etc/gitlab -v /home/gitlab/logs:/var/log/gitlab -v /home/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:15.0.5-ce.0
+
+docker run -d  -p 443:443 -p 80:80 -p 222:22 --name gitlab --restart always -v /home/gitlab/config:/etc/gitlab -v /home/gitlab/logs:/var/log/gitlab -v /home/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:15.4.6-ce.0
+
+docker run -d  -p 443:443 -p 80:80 -p 222:22 --name gitlab --restart always -v /home/gitlab/config:/etc/gitlab -v /home/gitlab/logs:/var/log/gitlab -v /home/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:15.11.13-ce.0
+
+docker run -d  -p 443:443 -p 80:80 -p 222:22 --name gitlab --restart always -v /home/gitlab/config:/etc/gitlab -v /home/gitlab/logs:/var/log/gitlab -v /home/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:16.3.9-ce.0
+
+docker run -d  -p 443:443 -p 80:80 -p 222:22 --name gitlab --restart always -v /home/gitlab/config:/etc/gitlab -v /home/gitlab/logs:/var/log/gitlab -v /home/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:16.7.10-ce.0
+
+docker run -d  -p 443:443 -p 80:80 -p 222:22 --name gitlab --restart always -v /home/gitlab/config:/etc/gitlab -v /home/gitlab/logs:/var/log/gitlab -v /home/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:16.11.10-ce.0
+
+docker run -d  -p 443:443 -p 80:80 -p 222:22 --name gitlab --restart always -v /home/gitlab/config:/etc/gitlab -v /home/gitlab/logs:/var/log/gitlab -v /home/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:17.3.6-ce.0
+
+docker run -d  -p 443:443 -p 80:80 -p 222:22 --name gitlab --restart always -v /home/gitlab/config:/etc/gitlab -v /home/gitlab/logs:/var/log/gitlab -v /home/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:17.4.3-ce.0
+
+
+docker save -o gitlab-ce1495.tar gitlab/gitlab-ce:14.9.5-ce.0
+
+docker save -o gitlab-ce14105.tar gitlab/gitlab-ce:14.10.5-ce.0
+
+docker save -o gitlab-ce1505.tar gitlab/gitlab-ce:15.0.5-ce.0
+
+docker save -o gitlab-ce1546.tar gitlab/gitlab-ce:15.4.6-ce.0
+
+docker save -o gitlab-ce151113.tar gitlab/gitlab-ce:15.11.13-ce.0
+
+docker save -o gitlab-ce1639.tar gitlab/gitlab-ce:16.3.9-ce.0
+
+docker save -o gitlab-ce16710.tar gitlab/gitlab-ce:16.7.10-ce.0
+
+docker save -o gitlab-ce161110.tar gitlab/gitlab-ce:16.11.10-ce.0
+
+docker save -o gitlab-ce1736.tar gitlab/gitlab-ce:17.3.6-ce.0
+
+docker save -o gitlab-ce1743.tar gitlab/gitlab-ce:17.4.3-ce.0
+
+
+
+
+docker load -i gitlab-ce1495.tar
+docker load -i gitlab-ce14105.tar 
+docker load -i gitlab-ce1505.tar 
+docker load -i gitlab-ce1546.tar 
+docker load -i gitlab-ce151113.tar 
+docker load -i gitlab-ce1639.tar 
+docker load -i gitlab-ce16710.tar 
+docker load -i gitlab-ce161110.tar 
+docker load -i gitlab-ce1736.tar 
+docker load -i gitlab-ce1743.tar 
+
+
