@@ -1,4 +1,4 @@
-注意：不能跨版本升级！！！！！！
+﻿注意：不能跨版本升级！！！！！！
 
 升级路线：https://blog.csdn.net/weixin_45272815/article/details/136120325
 
@@ -48,8 +48,6 @@ docker save -o gitlab-ce1736.tar gitlab/gitlab-ce:17.3.6-ce.0
 docker save -o gitlab-ce1743.tar gitlab/gitlab-ce:17.4.3-ce.0
 
 
-
-
 docker load -i gitlab-ce1495.tar
 docker load -i gitlab-ce14105.tar 
 docker load -i gitlab-ce1505.tar 
@@ -60,5 +58,26 @@ docker load -i gitlab-ce16710.tar
 docker load -i gitlab-ce161110.tar 
 docker load -i gitlab-ce1736.tar 
 docker load -i gitlab-ce1743.tar 
+
+----
+docker run gitlab/gitlab-ce:17.5.5-ce.0
+
+
+docker run gitlab/gitlab-ce:17.8.7-ce.0
+
+
+docker run gitlab/gitlab-ce:17.11.7-ce.0
+
+
+docker run gitlab/gitlab-ce:18.2.8-ce.0
+
+
+docker run gitlab/gitlab-ce:18.4.2-ce.0
+
+
+
+
+
+
 
 
