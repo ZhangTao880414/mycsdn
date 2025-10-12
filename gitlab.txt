@@ -60,21 +60,26 @@ docker load -i gitlab-ce1736.tar
 docker load -i gitlab-ce1743.tar 
 
 ----
-docker run gitlab/gitlab-ce:17.5.5-ce.0
+docker save -o gitlab-ce1755.tar gitlab/gitlab-ce:17.5.5-ce.0
 
 
-docker run gitlab/gitlab-ce:17.8.7-ce.0
+docker save -o gitlab-ce1787.tar gitlab/gitlab-ce:17.8.7-ce.0
 
 
-docker run gitlab/gitlab-ce:17.11.7-ce.0
+docker save -o gitlab-ce17117.tar gitlab/gitlab-ce:17.11.7-ce.0
 
 
-docker run gitlab/gitlab-ce:18.2.8-ce.0
+docker save -o gitlab-ce1828.tar gitlab/gitlab-ce:18.2.8-ce.0
 
 
-docker run gitlab/gitlab-ce:18.4.2-ce.0
+docker save -o gitlab-ce1842.tar gitlab/gitlab-ce:18.4.2-ce.0
 
 
+docker load -i gitlab-ce1755.tar 
+docker load -i gitlab-ce1787.tar 
+docker load -i gitlab-ce17117.tar 
+docker load -i gitlab-ce1828.tar 
+docker load -i gitlab-ce1842.tar 
 
 
 
